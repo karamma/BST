@@ -1,6 +1,8 @@
 #ifndef TEST_H
 #define TEST_H
 
+void test_bst();
+
 void test_tree_add();
 
 void test_tree_destroy();

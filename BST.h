@@ -18,5 +18,7 @@ Node* tree_destroy (Node * tree);
 
 Node* node_search (Node * tree, Data x);
 
+Node* tree_delete_node (Node * tree, Data x);
+
 #endif
 

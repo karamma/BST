@@ -1,6 +1,7 @@
 #include "test.h"
 
 int main () {
+	test_bst();
 	test_tree_add();
 	test_tree_destroy();
 	test_node_search();

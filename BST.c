@@ -46,4 +46,28 @@ Node* node_search (Node * tree, Data x) {
 	return tree;
 }
 
+Node* tree_delete_node (Node * tree, Data x) {
+	if (tree == NULL) {return NULL;}
+	if (x < tree->data) {
+		tree->left = tree_delete_node(tree->left, x);
+	} else if (x > tree->data) {
+		tree->right = tree_delete_node(tree->right, x); 
+	} else {
+		if (tree->left == NULL)  {
+			Node * change = tree->right;
+			free(tree);
+			return change;
+		}
+		if (tree->right == NULL) {
+			Node * change = tree->left;
+			free(tree);
+			return change;
+		}
 
+		Node * change = tree->right;
+		for (; change->left != NULL; change = change->left);
+		tree->data = change->data;
+		tree->right = tree_delete_node(tree->right, tree->data);
+	}
+	return tree;
+}
